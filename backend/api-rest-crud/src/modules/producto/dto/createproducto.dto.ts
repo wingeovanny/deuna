@@ -3,10 +3,11 @@ import { IsNumber, IsObject, IsString } from "class-validator";
 export class CreateProductoDto {
 
     @IsString()
-    readonly name: string;
-
+    readonly nombre: string;
+    @IsString()
+    readonly descripcion: string;
     @IsNumber()
-    readonly status: number;
+    readonly precio: number;
 
 
 

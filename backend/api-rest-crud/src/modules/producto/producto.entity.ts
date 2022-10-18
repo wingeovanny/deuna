@@ -7,11 +7,12 @@ export class Producto {
     id: number;
 
     @Column({ length: 50, nullable: false })
-    name: string;
+    nombre: string;
+
+    @Column({ length: 50, nullable: false })
+    descripcion: string;
 
     @Column({ nullable: false })
-    status: number;
-
-
+    precio: number;
 
 }

@@ -4,7 +4,7 @@ import { UpdateProductoDto } from "./dto/updateproducto.dto";
 import { Producto } from "./Producto.entity";
 import { ProductoServices } from "./Producto.service";
 
-@Controller('org')
+@Controller('producto')
 export class ProductoController {
 
     constructor(private readonly orgService: ProductoServices) {

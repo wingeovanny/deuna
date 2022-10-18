@@ -15,7 +15,6 @@ export class ProductoServices {
     async getProductos(): Promise<Producto[]> {
 
         return await this._prodRepository.find();
-        //  return await this._prodRepository.find({ relations: ['tribus'] });
 
     }
 
@@ -33,13 +32,14 @@ export class ProductoServices {
 
     async createProducto(data: CreateProductoDto) {
 
-        const newPost = await this._prodRepository.save({
-            name: data.name,
-            status: data.status,
+        const newProd = await this._prodRepository.save({
+            nombre: data.nombre,
+            descripcion: data.descripcion,
+            precio: data.precio
 
         });
 
-        return newPost;
+        return newProd;
 
 
     }

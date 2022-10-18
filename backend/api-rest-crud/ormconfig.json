@@ -4,7 +4,7 @@
   "username": "postgres",
   "password": "mysecretpassword",
   "port": "5444",
-  "database": "pichincha-api",
+  "database": "deuna-api",
   "autoLoadEntities": true,
   "synchronize": true,
   "logging": "false",
