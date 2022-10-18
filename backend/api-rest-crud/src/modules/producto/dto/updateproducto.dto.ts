@@ -2,8 +2,9 @@ import { IsNumber, IsString } from "class-validator";
 
 export class UpdateProductoDto {
     @IsString()
-    readonly name: string;
-
+    readonly nombre: string;
+    @IsString()
+    readonly descripcion: string;
     @IsNumber()
-    readonly status: number;
+    readonly precio: number;
 }

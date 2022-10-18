@@ -1,11 +1,13 @@
+import { ProductoService } from './../services/producto.service';
+import { Producto } from './../models/producto';
 import { Component, OnInit } from '@angular/core';
-import { Producto } from '../models/producto';
-import { ProductoService } from '../services/producto.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-producto',
   templateUrl: './lista-producto.component.html',
-  styleUrls: ['./lista-producto.component.css']
+
 })
 export class ListaProductoComponent implements OnInit {
 
@@ -34,7 +36,30 @@ export class ListaProductoComponent implements OnInit {
   }
 
   borrar(id: number): void {
-    console.log('BOrrar');
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No hay vuelta atrás',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sip',
+      cancelButtonText: 'Nops'
+    }).then((result) => {
+      if (result.value) {
+        this.productoService.delete(id).subscribe(res => this.cargarProductos());
+        Swal.fire(
+          'OK',
+          'Producto eliminado',
+          'success'
+        );
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelado',
+          'Producto a salvo',
+          'error'
+        );
+      }
+    });
   }
+
 
 }
