@@ -3,7 +3,7 @@ import { APP_FILTER, NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   //para hacer un mapper auto o castear, y evitar data maliciiosa, 
   app.useGlobalPipes(new ValidationPipe({

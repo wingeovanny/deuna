@@ -14,6 +14,7 @@ export class ProductoService {
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Producto[]> {
+    console.log((`${this.productoURL}`));
     return this.httpClient.get<Producto[]>(`${this.productoURL}`);
   }
 
@@ -22,11 +23,13 @@ export class ProductoService {
   }
 
   public save(producto: Producto): Observable<any> {
-    return this.httpClient.post<any>(`${this.productoURL}`, producto);
+    const headers = { 'Content-Type': 'application/json; charset=utf-8' };
+
+    return this.httpClient.post<any>(`${this.productoURL}`, producto, { 'headers': headers });
   }
 
   public update(id: number, producto: Producto): Observable<any> {
-    return this.httpClient.put<any>(`${this.productoURL}${id}`, producto);
+    return this.httpClient.patch<any>(`${this.productoURL}${id}`, producto);
   }
 
   public delete(id: number): Observable<any> {

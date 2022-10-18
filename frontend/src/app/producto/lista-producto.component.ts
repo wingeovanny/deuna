@@ -54,7 +54,7 @@ export class ListaProductoComponent implements OnInit {
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelado',
-          'Producto a salvo',
+          'Producto no se borra',
           'error'
         );
       }
