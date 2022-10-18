@@ -25,9 +25,7 @@ export const DataBaseProvider: DynamicModule = TypeOrmModule.forRootAsync({
             logging: config.get("LOGGING"),
             migrations: ['dist/database/migrations/*.js'],
             entities: ['dist/**/*.entity.js'],
-            cli: {
-                migrationsDir: 'src/database/migrations',
-            },
+
 
         } as ConnectionOptions;
 
