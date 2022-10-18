@@ -13,8 +13,5 @@
   ],
   "entities": [
     "dist/**/*.entity.js"
-  ],
-  "cli": {
-    "migrationsDir": "src/database/migrations"
-  }
+  ]
 }
